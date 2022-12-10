@@ -4,11 +4,11 @@ import java.util.Stack;
 
 public class MyQueue {
     public static void main(String[] args) {
-        push(1);
-        push(2);
-        peek();
-        pop();
-        empty();
+        MyQueue.push(1);
+        MyQueue.push(2);
+        MyQueue.peek();
+        MyQueue.pop();
+        MyQueue.empty();
     }
 
     static Stack<Integer> firstStack = new Stack<>();
@@ -22,6 +22,7 @@ public class MyQueue {
         firstStack.add(x);
     }
 
+
     public static int pop() {
         transferItems();
         return secondStack.pop();
@@ -29,7 +30,6 @@ public class MyQueue {
 
     private static void transferItems() {
         if (secondStack.isEmpty()) {
-            // Transfer elements onto the pop stack
             while (!firstStack.isEmpty()) {
                 secondStack.add(firstStack.pop());
             }
